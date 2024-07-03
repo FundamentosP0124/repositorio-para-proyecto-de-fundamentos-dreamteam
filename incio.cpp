@@ -9,6 +9,8 @@ int generarNumeroAleatorio(int, int);
 void llenarAregloVacio(int[100]);
 void Jugadores(string Jugador[10][2],int,string, int);
 void ranking(string[3][2],int );
+void vaciarArreglo(int[100]);
+void PreLLenadoArreglo(string[10][2]);
 int main(void)
 {
     string matriz_preguntas [3][9];
@@ -18,9 +20,12 @@ int main(void)
     int puntaje;
     Preguntas(matriz_preguntas);
     int opcion;
-    int jugadoresCant;
+    int jugadoresCant = -1;
     string alias;
     string Players[10][2];
+    string seguir ="si";
+    PreLLenadoArreglo(Players);
+    do{
     cout <<endl<<endl<< "Bienvenido a TriviaMaster" << endl << endl;
     cout << "......................." << endl;
     cout << "Porfavor seleccione una opcion: " << endl;
@@ -38,16 +43,15 @@ int main(void)
                 cout << "Usted ha seleccionado la opcion Jugar. Disfrute el juego!" << endl;
                 Preguntas_al_azar_cultura_general(matriz_preguntas,preguntasAlmacenadas,&acululadorPreguntas,&puntaje,&alias,&jugadoresCant);
                 Jugadores(Players,jugadoresCant,alias,puntaje);
-                ranking(Players,jugadoresCant);
-                for(int i=0;i<1;i++)
-    {
-        cout << Players[i][1]<<endl;
-    }
                 break;
 
             case 2:
                 cout << "Usted ha sellecionado la opcion Ranking. Mira quien es el mejor!!!" << endl;
-
+                ranking(Players,jugadoresCant);
+                for(int i=0;i<10;i++)
+                {
+                    cout << Players[i][0]<<"......................."<<Players[i][1]<<endl;
+                }
                 break;
 
             case 3:
@@ -58,6 +62,9 @@ int main(void)
                 cout << "Opcion no valida. Porfavor seleccione entre las 3 opciones" << endl << endl;
                 
         } 
+        vaciarArreglo(preguntasAlmacenadas);
+        acululadorPreguntas = 0;
+    }while(seguir == "si");
 }
 
 //Preguntas
@@ -107,16 +114,18 @@ int generarNumeroAleatorio(int min, int max)
     return numeroAleatorio;
 }
 
-void Jugadores(string Jugador[3][2],int n,string alias, int puntaje)
+void Jugadores(string Jugador[10][2],int n,string alias, int puntaje)
 {
-    n=n-1;
-    Jugador[n][1] = alias;
-    Jugador[n][2] = puntaje;
+    string numero = to_string(puntaje);
+    Jugador[n][0] = alias;
+    Jugador[n][1] = numero;
 }
 
 void Preguntas_al_azar_cultura_general(string Preguntas[3][9],int preguntasAlmacenadas[100],int *acumulador,int *puntaje,string *alias,int *jugadoresCant)//Cambiar el tamaño de la matriz de preguntas
 {
     int acum = *acumulador; 
+    int cantJugadores;
+    cantJugadores = *jugadoresCant;
     *puntaje = 0;
     int puntos = *puntaje;
     int vidas = 3;
@@ -184,19 +193,42 @@ void Preguntas_al_azar_cultura_general(string Preguntas[3][9],int preguntasAlmac
     cout << "Puntaje: "<< puntos<<endl;
     cout << "Ingresa tu alias:  ";
     cin >> *alias;
-    *jugadoresCant ++;
+    cantJugadores ++;
+    *jugadoresCant = cantJugadores;
+    *puntaje = puntos;
 }
 
 void ranking(string arr[10][2],int n)
  {
+    if(n>0)
+    {
     // Ordenar la segunda columna de forma descendente usando bubble sort
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < n - i; j++) {
-            if (stoi(arr[j][2]) < stoi(arr[j + 1][2])) {
-                // Intercambiar filas
-                swap(arr[j][0], arr[j + 1][0]);
-                swap(arr[j][1], arr[j + 1][1]);
+        for (int i = 0; i < n; i++) 
+        {
+            for (int j = 0; j < n - i; j++) {
+                if (stoi(arr[j][1]) < stoi(arr[j + 1][1])) {
+                    // Intercambiar filas
+                    swap(arr[j][0], arr[j + 1][0]);
+                    swap(arr[j][1], arr[j + 1][1]);
+                }
             }
+        }
+    }
+}
+
+void vaciarArreglo(int arr[100]) 
+{
+    for (int i = 0; i < 100; i++) 
+    {
+        arr[i] = -1;
+    }
+}
+
+void PreLLenadoArreglo(string jugadores[10][2])
+ {
+    for (int i = 0; i < 10; i++) {
+        for (int j = 0; j < 2; j++) {
+            jugadores[i][j] = "0";
         }
     }
 }
