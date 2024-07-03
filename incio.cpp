@@ -7,7 +7,7 @@ int generarNumeroAleatorio(int, int );
 void Preguntas_al_azar_cultura_general(string[2][9],int[100],int *,int *,string *,int *);
 int generarNumeroAleatorio(int, int);
 void llenarAregloVacio(int[100]);
-void Jugadores(string Jugador[10][2],int,string, int);
+void Jugadores(string Jugador[10][2],int*,string, int);
 void ranking(string[3][2],int );
 void vaciarArreglo(int[100]);
 void PreLLenadoArreglo(string[10][2]);
@@ -42,7 +42,7 @@ int main(void)
             case 1:
                 cout << "Usted ha seleccionado la opcion Jugar. Disfrute el juego!" << endl;
                 Preguntas_al_azar_cultura_general(matriz_preguntas,preguntasAlmacenadas,&acululadorPreguntas,&puntaje,&alias,&jugadoresCant);
-                Jugadores(Players,jugadoresCant,alias,puntaje);
+                Jugadores(Players,&jugadoresCant,alias,puntaje);
                 break;
 
             case 2:
@@ -114,11 +114,24 @@ int generarNumeroAleatorio(int min, int max)
     return numeroAleatorio;
 }
 
-void Jugadores(string Jugador[10][2],int n,string alias, int puntaje)
+void Jugadores(string Jugador[10][2],int *njugador,string alias, int puntaje)
 {
+    int n = *njugador;
     string numero = to_string(puntaje);
+    if(n<=9)
+    {
     Jugador[n][0] = alias;
     Jugador[n][1] = numero;
+    }
+    if(n>9 && puntaje > stoi(Jugador[9][1]))
+    {
+    n = 9;
+    ranking(Jugador,n);
+    Jugador[9][0] = alias;
+    Jugador[9][1] = numero;
+    *njugador = n;
+    }
+
 }
 
 void Preguntas_al_azar_cultura_general(string Preguntas[3][9],int preguntasAlmacenadas[100],int *acumulador,int *puntaje,string *alias,int *jugadoresCant)//Cambiar el tamaño de la matriz de preguntas
@@ -209,7 +222,7 @@ void ranking(string arr[10][2],int n)
                 if (stoi(arr[j][1]) < stoi(arr[j + 1][1])) {
                     // Intercambiar filas
                     swap(arr[j][0], arr[j + 1][0]);
-                    swap(arr[j][1], arr[j + 1][1]);
+                    swap(arr[j][1], arr[j + 1][1]); //funcion swap sirve para hacer intercambios entre variables
                 }
             }
         }
