@@ -111,7 +111,7 @@ int generarNumeroAleatorio(int min, int max)
     // Inicializar la semilla de los números aleatorios
     std::srand(std::time(nullptr));
 
-    // Generar el número aleatorio en el rango [min, max]
+    // Generar el número aleatorio en el rango de numero de preguntas
     int numeroAleatorio = min + std::rand() % ((max + 1) - min);
     return numeroAleatorio;
 }
@@ -212,7 +212,6 @@ void Preguntas_al_azar_cultura_general(string Preguntas[3][9],int preguntasAlmac
     cout << "Puntaje: "<< puntos<<endl;
     cout << "Ingresa tu alias:  ";
     cin >> *alias;
-    *alias = NoEspacios(*alias);
     cantJugadores ++;
     *jugadoresCant = cantJugadores;
     *puntaje = puntos;
@@ -222,7 +221,7 @@ void ranking(string arr[10][2],int n)
  {
     if(n>0)
     {
-    // Ordenar la segunda columna de forma descendente usando bubble sort
+    // Ordenar la segunda columna de forma descendente usando 
         for (int i = 0; i < n; i++) 
         {
             for (int j = 0; j < n - i; j++) {
@@ -254,10 +253,10 @@ void PreLLenadoArreglo(string jugadores[10][2])
 }
 
 string getInputWithoutSpaces() {
-    std::string input;
+    string input;
     char ch;
 
-    std::cout << "Ingrese una cadena (espacios no permitidos): ";
+   // cout << "Ingrese una cadena (espacios no permitidos): ";
 
     while ((ch = _getch()) != '\r') { // '\r' es el código ASCII para Enter
         if (ch == ' ') {
