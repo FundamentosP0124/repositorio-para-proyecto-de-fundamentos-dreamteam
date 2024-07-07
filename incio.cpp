@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <conio.h>
 using namespace std;
 void Preguntas(string[3][9]); //Cambiar el tamaño de la matriz de preguntas
 int generarNumeroAleatorio(int, int );
@@ -11,6 +12,7 @@ void Jugadores(string Jugador[10][2],int*,string, int);
 void ranking(string[3][2],int );
 void vaciarArreglo(int[100]);
 void PreLLenadoArreglo(string[10][2]);
+string NoEspacios(string);
 int main(void)
 {
     string matriz_preguntas [3][9];
@@ -123,6 +125,9 @@ void Jugadores(string Jugador[10][2],int *njugador,string alias, int puntaje)
     Jugador[n][0] = alias;
     Jugador[n][1] = numero;
     }
+    if(n>9)
+    {
+         ranking(Jugador,n);
     if(n>9 && puntaje > stoi(Jugador[9][1]))
     {
     n = 9;
@@ -130,6 +135,7 @@ void Jugadores(string Jugador[10][2],int *njugador,string alias, int puntaje)
     Jugador[9][0] = alias;
     Jugador[9][1] = numero;
     *njugador = n;
+    }
     }
 
 }
@@ -206,6 +212,7 @@ void Preguntas_al_azar_cultura_general(string Preguntas[3][9],int preguntasAlmac
     cout << "Puntaje: "<< puntos<<endl;
     cout << "Ingresa tu alias:  ";
     cin >> *alias;
+    *alias = NoEspacios(*alias);
     cantJugadores ++;
     *jugadoresCant = cantJugadores;
     *puntaje = puntos;
@@ -244,4 +251,24 @@ void PreLLenadoArreglo(string jugadores[10][2])
             jugadores[i][j] = "0";
         }
     }
+}
+
+string getInputWithoutSpaces() {
+    std::string input;
+    char ch;
+
+    std::cout << "Ingrese una cadena (espacios no permitidos): ";
+
+    while ((ch = _getch()) != '\r') { // '\r' es el código ASCII para Enter
+        if (ch == ' ') {
+            std::cout << "\b \b"; // Borra el espacio en la consola
+            continue; // Ignorar el espacio
+        }
+        std::cout << ch; // Mostrar el carácter en la consola
+        input += ch; // Agregar el carácter a la cadena
+    }
+
+    std::cout << std::endl; // Nueva línea después de Enter
+
+    return input;
 }
