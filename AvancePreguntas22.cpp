@@ -12,10 +12,9 @@ void Jugadores(string Jugador[10][2],int*,string, int);
 void ranking(string[3][2],int );
 void vaciarArreglo(int[100]);
 void PreLLenadoArreglo(string[10][2]);
-string NoEspacios(string);
 int main(void)
 {
-    string matriz_preguntas [3][9];
+    string matriz_preguntas [25][9];
     int acululadorPreguntas; //Lleva el indice del arreglo donde se almacenan los numeros de las preguntas que se han lanzado al usuario
     acululadorPreguntas = 0;
     int preguntasAlmacenadas[100];
@@ -155,7 +154,7 @@ void Preguntas(string Preguntas[25][9]) //Cambiar el tamaño de la matriz de pre
     Preguntas[7][1] = {"2"};
     Preguntas[7][2] = {"B"};
     Preguntas[7][3] = {"Entretenimiento"};
-    Preguntas[7][4] = {"Cuál de estos superheroes de Marvel es conocido por llevar un martillo mágico?"};
+    Preguntas[7][4] = {"Cual de estos superheroes de Marvel es conocido por llevar un martillo magico?"};
     Preguntas[7][5] = {"A) Iron Man"};
     Preguntas[7][6] = {"B) Thor"};
     Preguntas[7][7] = {"C) Hulk"};
@@ -165,8 +164,8 @@ void Preguntas(string Preguntas[25][9]) //Cambiar el tamaño de la matriz de pre
     Preguntas[8][1] = {"5"};
     Preguntas[8][2] = {"D"};
     Preguntas[8][3] = {"Deportiva"};
-    Preguntas[8][4] = {"En qué deporte se otorga el Trofeo Larry O Brien?"};
-    Preguntas[8][5] = {"A) Fútbol americano"};
+    Preguntas[8][4] = {"En que deporte se otorga el Trofeo Larry O Brien?"};
+    Preguntas[8][5] = {"A) Futbol americano"};
     Preguntas[8][6] = {"B) Hockey sobre hielo"};
     Preguntas[8][7] = {"C) Beisbol"};
     Preguntas[8][8] = {"D) Baloncesto"};
@@ -195,7 +194,7 @@ void Preguntas(string Preguntas[25][9]) //Cambiar el tamaño de la matriz de pre
     Preguntas[11][1] = {"4"};
     Preguntas[11][2] = {"C"};
     Preguntas[11][3] = {"Geografia"};
-    Preguntas[11][4] = {"Cual es el pais más grande por area de America del Sur?"};
+    Preguntas[11][4] = {"Cual es el pais mas grande por area de America del Sur?"};
     Preguntas[11][5] = {"A) Argentina"};
     Preguntas[11][6] = {"B) Chile"};
     Preguntas[11][7] = {"C) Brasil"};
@@ -215,7 +214,7 @@ void Preguntas(string Preguntas[25][9]) //Cambiar el tamaño de la matriz de pre
     Preguntas[13][1] = {"2"};
     Preguntas[13][2] = {"B"};
     Preguntas[13][3] = {"Literatura"};
-    Preguntas[13][4] = {"Cuál de las siguientes obras literarias fue escrita por William Shakespeare?"};
+    Preguntas[13][4] = {"Cual de las siguientes obras literarias fue escrita por William Shakespeare?"};
     Preguntas[13][5] = {"A) Don Quijote de la Mancha"};
     Preguntas[13][6] = {"B) Romeo y Julieta"};
     Preguntas[13][7] = {"C) Cien años de soledad"};
@@ -235,7 +234,7 @@ void Preguntas(string Preguntas[25][9]) //Cambiar el tamaño de la matriz de pre
     Preguntas[15][1] = {"3"};
     Preguntas[15][2] = {"C"};
     Preguntas[15][3] = {"Geografia"};
-    Preguntas[15][4] = {"Cuál de los siguientes países no tiene una frontera con Brasil?"};
+    Preguntas[15][4] = {"Cual de los siguientes paises no tiene una frontera con Brasil?"};
     Preguntas[15][5] = {"A) Colombia"};
     Preguntas[15][6] = {"B) Argentina"};
     Preguntas[15][7] = {"C) Ecuador"};
@@ -244,8 +243,8 @@ void Preguntas(string Preguntas[25][9]) //Cambiar el tamaño de la matriz de pre
     Preguntas[16][0] = {"16"};
     Preguntas[16][1] = {"5"};
     Preguntas[16][2] = {"A"};
-    Preguntas[16][3] = {"Geografia"};
-    Preguntas[16][4] = {"Cuál es el resultado de la siguiente operación matemática? 15 + 3/5 * 8 - 2"};
+    Preguntas[16][3] = {"Ciencias"};
+    Preguntas[16][4] = {"Cual es el resultado de la siguiente operacion matematica? 15 + 3/5 * 8 - 2"};
     Preguntas[16][5] = {"A) 21"};
     Preguntas[16][6] = {"B) 34"};
     Preguntas[16][7] = {"C) 0"};
@@ -255,7 +254,7 @@ void Preguntas(string Preguntas[25][9]) //Cambiar el tamaño de la matriz de pre
     Preguntas[17][1] = {"4"};
     Preguntas[17][2] = {"C"};
     Preguntas[17][3] = {"Deportes"};
-    Preguntas[17][4] = {"Quién es el máximo goleador de la historia de la Copa del Mundo de la FIFA?"};
+    Preguntas[17][4] = {"Quien es el maximo goleador de la historia de la Copa del Mundo de la FIFA?"};
     Preguntas[17][5] = {"A) Pele"};
     Preguntas[17][6] = {"B) Lionel Messi"};
     Preguntas[17][7] = {"C) Miroslav Klose"};
@@ -265,7 +264,7 @@ void Preguntas(string Preguntas[25][9]) //Cambiar el tamaño de la matriz de pre
     Preguntas[18][1] = {"2"};
     Preguntas[18][2] = {"B"};
     Preguntas[18][3] = {"Ciencias"};
-    Preguntas[18][4] = {"Cuál es el metal más abundante en la corteza terrestre?"};
+    Preguntas[18][4] = {"Cual es el metal mas abundante en la corteza terrestre?"};
     Preguntas[18][5] = {"A) Hierro"};
     Preguntas[18][6] = {"B) Aluminio"};
     Preguntas[18][7] = {"C) Oro"};
@@ -274,8 +273,8 @@ void Preguntas(string Preguntas[25][9]) //Cambiar el tamaño de la matriz de pre
     Preguntas[19][0] = {"19"};
     Preguntas[19][1] = {"2"};
     Preguntas[19][2] = {"D"};
-    Preguntas[19][3] = {"Ciencias"};
-    Preguntas[19][4] = {"Cuál es la capital de Australia?"};
+    Preguntas[19][3] = {"Geografia"};
+    Preguntas[19][4] = {"Cual es la capital de Australia?"};
     Preguntas[19][5] = {"A) Melbourne"};
     Preguntas[19][6] = {"B) Sidney"};
     Preguntas[19][7] = {"C) Brisbane"};
@@ -284,22 +283,52 @@ void Preguntas(string Preguntas[25][9]) //Cambiar el tamaño de la matriz de pre
     Preguntas[20][0] = {"20"};
     Preguntas[20][1] = {"3"};
     Preguntas[20][2] = {"B"};
-    Preguntas[20][3] = {"Ciencias"};
-    Preguntas[20][4] = {"Quién pintó la famosa obra La noche estrellada?"};
+    Preguntas[20][3] = {"Arte"};
+    Preguntas[20][4] = {"Quien pinto la famosa obra La noche estrellada?"};
     Preguntas[20][5] = {"A) Pablo Picasso"};
     Preguntas[20][6] = {"B) Vincent van Gogh"};
     Preguntas[20][7] = {"C) Leonadro da Vinci"};
     Preguntas[20][8] = {"D) Claude Monet"};
     //
     Preguntas[21][0] = {"21"};
-    Preguntas[21][1] = {"3"};
-    Preguntas[21][2] = {"B"};
-    Preguntas[21][3] = {"Ciencias"};
-    Preguntas[21][4] = {"Quién pintó la famosa obra La noche estrellada?"};
-    Preguntas[21][5] = {"A) Pablo Picasso"};
-    Preguntas[21][6] = {"B) Vincent van Gogh"};
-    Preguntas[21][7] = {"C) Leonadro da Vinci"};
-    Preguntas[21][8] = {"D) Claude Monet"};
+    Preguntas[21][1] = {"4"};
+    Preguntas[21][2] = {"D"};
+    Preguntas[21][3] = {"Historia"};
+    Preguntas[21][4] = {"Quien fue el primer presidente de los Estados Unidos de America continental?"};
+    Preguntas[21][5] = {"A) George Washington"};
+    Preguntas[21][6] = {"B) Thomas Jefferson"};
+    Preguntas[21][7] = {"C) John Adams"};
+    Preguntas[21][8] = {"D) John Hancock"};
+    //
+    Preguntas[22][0] = {"22"};
+    Preguntas[22][1] = {"2"};
+    Preguntas[22][2] = {"A"};
+    Preguntas[22][3] = {"Entretenemiento"};
+    Preguntas[22][4] = {"Quien fue el vocalista principal de la banda britanica Queen?"};
+    Preguntas[22][5] = {"A) Freddie Mercury"};
+    Preguntas[22][6] = {"B) Brian May"};
+    Preguntas[22][7] = {"C) Led Zeppeli"};
+    Preguntas[22][8] = {"D) Kanye West"};
+    //
+    Preguntas[23][0] = {"23"};
+    Preguntas[23][1] = {"1"};
+    Preguntas[23][2] = {"C"};
+    Preguntas[23][3] = {"Ciencia"};
+    Preguntas[23][4] = {"Cual de los siguientes animales es conocido por ser el mas grande de todos los mamiferos terrestres?"};
+    Preguntas[23][5] = {"A) Hormiga"};
+    Preguntas[23][6] = {"B) Rinoceronte"};
+    Preguntas[23][7] = {"C) Elefante"};
+    Preguntas[23][8] = {"D) Jirafa"};
+    //
+    Preguntas[24][0] = {"24"};
+    Preguntas[24][1] = {"2"};
+    Preguntas[24][2] = {"A"};
+    Preguntas[24][3] = {"Deportes"};
+    Preguntas[24][4] = {"Que equipo gano la Copa del Mundo de la FIFA en 2018?"};
+    Preguntas[24][5] = {"A) Francia"};
+    Preguntas[24][6] = {"B) Alemania"};
+    Preguntas[24][7] = {"C) Brasil"};
+    Preguntas[24][8] = {"D) Argentina"};
 }
 
 
@@ -375,7 +404,7 @@ void Preguntas_al_azar_cultura_general(string Preguntas[25][9],int preguntasAlma
                 }
                 if(baliza != 0)
                 {
-                    preguntaRandom = generarNumeroAleatorio(0,2);//Cambiar rango de valor random
+                    preguntaRandom = generarNumeroAleatorio(0,24);//Cambiar rango de valor random
                 }
         }
         if(acum == 0)
@@ -410,7 +439,6 @@ void Preguntas_al_azar_cultura_general(string Preguntas[25][9],int preguntasAlma
     cout << "Puntaje: "<< puntos<<endl;
     cout << "Ingresa tu alias:  ";
     cin >> *alias;
-    *alias = NoEspacios(*alias);
     cantJugadores ++;
     *jugadoresCant = cantJugadores;
     *puntaje = puntos;
