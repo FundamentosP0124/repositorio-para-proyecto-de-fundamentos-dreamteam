@@ -414,7 +414,7 @@ void Preguntas_al_azar_cultura_general(string Preguntas[25][9],int preguntasAlma
     } while(preguntaNoRepetida == "si");
     preguntasAlmacenadas[acum] = preguntaRandom;
     acum ++;
-    cout << Preguntas[preguntaRandom][4]<<endl;
+    cout << endl <<Preguntas[preguntaRandom][4]<<endl;
     respuestaC = Preguntas[preguntaRandom][2];
     //Respuestas
     cout << Preguntas[preguntaRandom][5]<<endl;
@@ -422,7 +422,7 @@ void Preguntas_al_azar_cultura_general(string Preguntas[25][9],int preguntasAlma
     cout << Preguntas[preguntaRandom][7]<<endl;
     cout << Preguntas[preguntaRandom][8]<<endl;
     cin >> respuestaUser;
-    if(respuestaUser==respuestaC)
+    if(respuestaUser==respuestaC )
     {
         cout << "Respuesta correcta!!! has acumulado "<<Preguntas[preguntaRandom][1]<<" puntos."<<endl;
         puntos = puntos + stoi(Preguntas[preguntaRandom][1]);
