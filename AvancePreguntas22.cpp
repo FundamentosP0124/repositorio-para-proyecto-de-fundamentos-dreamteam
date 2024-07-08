@@ -42,8 +42,7 @@ int main(void)
     cout << "3. Salir." << endl;
     cout << "......................." << endl;
     cin >> opcion;
-
-
+    
 
         switch (opcion)
         {
@@ -225,7 +224,7 @@ void Preguntas(string Preguntas[25][9]) //Cambiar el tamaño de la matriz de pre
     Preguntas[14][2] = {"D"};
     Preguntas[14][3] = {"Historia"};
     Preguntas[14][4] = {"Cual es el animal terrestre mas rapido?"};
-    Preguntas[14][5] = {"A) Leo"};
+    Preguntas[14][5] = {"A) Leon"};
     Preguntas[14][6] = {"B) Antilope"};
     Preguntas[14][7] = {"C) Caballo"};
     Preguntas[14][8] = {"D) Guepardo"};
