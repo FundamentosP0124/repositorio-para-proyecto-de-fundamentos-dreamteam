@@ -42,8 +42,7 @@ int main(void)
     cout << "3. Salir." << endl;
     cout << "......................." << endl;
     cin >> opcion;
-
-
+    
 
         switch (opcion)
         {
@@ -225,7 +224,7 @@ void Preguntas(string Preguntas[25][9]) //Cambiar el tamaño de la matriz de pre
     Preguntas[14][2] = {"D"};
     Preguntas[14][3] = {"Historia"};
     Preguntas[14][4] = {"Cual es el animal terrestre mas rapido?"};
-    Preguntas[14][5] = {"A) Leo"};
+    Preguntas[14][5] = {"A) Leon"};
     Preguntas[14][6] = {"B) Antilope"};
     Preguntas[14][7] = {"C) Caballo"};
     Preguntas[14][8] = {"D) Guepardo"};
@@ -415,7 +414,7 @@ void Preguntas_al_azar_cultura_general(string Preguntas[25][9],int preguntasAlma
     } while(preguntaNoRepetida == "si");
     preguntasAlmacenadas[acum] = preguntaRandom;
     acum ++;
-    cout << Preguntas[preguntaRandom][4]<<endl;
+    cout << endl <<Preguntas[preguntaRandom][4]<<endl;
     respuestaC = Preguntas[preguntaRandom][2];
     //Respuestas
     cout << Preguntas[preguntaRandom][5]<<endl;
@@ -423,7 +422,7 @@ void Preguntas_al_azar_cultura_general(string Preguntas[25][9],int preguntasAlma
     cout << Preguntas[preguntaRandom][7]<<endl;
     cout << Preguntas[preguntaRandom][8]<<endl;
     cin >> respuestaUser;
-    if(respuestaUser==respuestaC)
+    if(respuestaUser==respuestaC )
     {
         cout << "Respuesta correcta!!! has acumulado "<<Preguntas[preguntaRandom][1]<<" puntos."<<endl;
         puntos = puntos + stoi(Preguntas[preguntaRandom][1]);
@@ -444,7 +443,7 @@ void Preguntas_al_azar_cultura_general(string Preguntas[25][9],int preguntasAlma
     *puntaje = puntos;
 }
 
-void ranking(string jugadores[10][2],int n)
+void ranking(string arr[10][2],int n)
  {
     if(n>0)
     {
@@ -452,21 +451,21 @@ void ranking(string jugadores[10][2],int n)
         for (int i = 0; i < n; i++) 
         {
             for (int j = 0; j < n - i; j++) {
-                if (stoi(jugadores[j][1]) < stoi(jugadores[j + 1][1])) {
+                if (stoi(arr[j][1]) < stoi(arr[j + 1][1])) {
                     // Intercambiar filas
-                    swap(jugadores[j][0], jugadores[j + 1][0]);
-                    swap(jugadores[j][1], jugadores[j + 1][1]); //funcion swap sirve para hacer intercambios entre variables
+                    swap(arr[j][0], arr[j + 1][0]);
+                    swap(arr[j][1], arr[j + 1][1]); //funcion swap sirve para hacer intercambios entre variables
                 }
             }
         }
     }
 }
 
-void vaciarArreglo(int arreglo[100]) 
+void vaciarArreglo(int arr[100]) 
 {
     for (int i = 0; i < 100; i++) 
     {
-        arreglo[i] = -1;
+        arr[i] = -1;
     }
 }
 
@@ -477,4 +476,24 @@ void PreLLenadoArreglo(string jugadores[10][2])
             jugadores[i][j] = "0";
         }
     }
+}
+
+string getInputWithoutSpaces() {
+    std::string input;
+    char ch;
+
+    std::cout << "Ingrese una cadena (espacios no permitidos): ";
+
+    while ((ch = _getch()) != '\r') { // '\r' es el código ASCII para Enter
+        if (ch == ' ') {
+            std::cout << "\b \b"; // Borra el espacio en la consola
+            continue; // Ignorar el espacio
+        }
+        std::cout << ch; // Mostrar el carácter en la consola
+        input += ch; // Agregar el carácter a la cadena
+    }
+
+    std::cout << std::endl; // Nueva línea después de Enter
+
+    return input;
 }
