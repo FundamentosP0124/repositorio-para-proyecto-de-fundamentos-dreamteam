@@ -444,7 +444,7 @@ void Preguntas_al_azar_cultura_general(string Preguntas[25][9],int preguntasAlma
     *puntaje = puntos;
 }
 
-void ranking(string arr[10][2],int n)
+void ranking(string jugadores[10][2],int n)
  {
     if(n>0)
     {
@@ -452,21 +452,21 @@ void ranking(string arr[10][2],int n)
         for (int i = 0; i < n; i++) 
         {
             for (int j = 0; j < n - i; j++) {
-                if (stoi(arr[j][1]) < stoi(arr[j + 1][1])) {
+                if (stoi(jugadores[j][1]) < stoi(jugadores[j + 1][1])) {
                     // Intercambiar filas
-                    swap(arr[j][0], arr[j + 1][0]);
-                    swap(arr[j][1], arr[j + 1][1]); //funcion swap sirve para hacer intercambios entre variables
+                    swap(jugadores[j][0], jugadores[j + 1][0]);
+                    swap(jugadores[j][1], jugadores[j + 1][1]); //funcion swap sirve para hacer intercambios entre variables
                 }
             }
         }
     }
 }
 
-void vaciarArreglo(int arr[100]) 
+void vaciarArreglo(int arreglo[100]) 
 {
     for (int i = 0; i < 100; i++) 
     {
-        arr[i] = -1;
+        arreglo[i] = -1;
     }
 }
 
@@ -477,24 +477,4 @@ void PreLLenadoArreglo(string jugadores[10][2])
             jugadores[i][j] = "0";
         }
     }
-}
-
-string getInputWithoutSpaces() {
-    std::string input;
-    char ch;
-
-    std::cout << "Ingrese una cadena (espacios no permitidos): ";
-
-    while ((ch = _getch()) != '\r') { // '\r' es el código ASCII para Enter
-        if (ch == ' ') {
-            std::cout << "\b \b"; // Borra el espacio en la consola
-            continue; // Ignorar el espacio
-        }
-        std::cout << ch; // Mostrar el carácter en la consola
-        input += ch; // Agregar el carácter a la cadena
-    }
-
-    std::cout << std::endl; // Nueva línea después de Enter
-
-    return input;
 }
