@@ -26,7 +26,6 @@ int main(void)
     string Players[10][2];
     string seguir ="si";
     PreLLenadoArreglo(Players);
-    do{
     cout <<endl<<endl<< "Bienvenido a TriviaMaster" << endl << endl;
     // instrucciones para el juego
     cout << "Instrucciones: Este juego trata sobre responder preguntas de cultura general correctamente escogiendo la letra de las cuatro opciones que se daran,";
@@ -34,12 +33,15 @@ int main(void)
     cout << "A continuacion se le presentara el menu con diferentes opciones para seleccionar." << endl << endl;
     cout << "Presione Enter para comenzar" << endl;
     cin.get(); // El programa espera a obtener Enter
-    cout << "--------TriviaMaster-----------" << endl;
+    do{
+    cout <<endl<<endl<< "--------TriviaMaster-----------" << endl;
     cout << "......................." << endl;
     cout << "Porfavor seleccione una opcion: " << endl;
     cout << "1. Jugar" << endl;
     cout << "2. Ranking" << endl;
-    cout << "3. Salir." << endl;
+    cout << "3. Creditos..." << endl;
+    cout << "4. Instrucciones" <<endl;
+    cout << "5. Salir." << endl;
     cout << "......................." << endl;
     cin >> opcion;
 
@@ -63,9 +65,20 @@ int main(void)
                 break;
 
             case 3:
+                cout << "Creditos" << endl;
+                cout << "Creado por :" << endl;
+                cout << "Luis Rodrigo Guzman Estrada "<<"carnet: 00003924" << endl;
+                cout << "Juan Carlos Rivera Melendez "<<"carnet: 00029324" << endl;
+                break;
+            case 4:
+                cout << "Instrucciones: Este juego trata sobre responder preguntas de cultura general correctamente escogiendo la letra de las cuatro opciones que se daran,";
+                cout << "cada pregunta tiene diferente puntaje y alfinal de el juego debera crear un alias para registrarse en el ranking." << endl << endl;
+                cout << "A continuacion se le presentara el menu con diferentes opciones para seleccionar." << endl << endl; 
+                break;
+            case 5:
                 cout << "Usted ha seleccionado Salir. Nos vemos." << endl;
                 return 0;
-                break;
+                break;    
             default:
                 cout << "Opcion no valida. Porfavor seleccione entre las 3 opciones" << endl << endl;
                 
@@ -336,10 +349,10 @@ void Preguntas(string Preguntas[25][9]) //Cambiar el tamaño de la matriz de pre
 int generarNumeroAleatorio(int min, int max)
  {
     // Inicializar la semilla de los números aleatorios
-    std::srand(std::time(nullptr));
+    srand(time(nullptr));
 
     // Generar el número aleatorio en el rango [min, max]
-    int numeroAleatorio = min + std::rand() % ((max + 1) - min);
+    int numeroAleatorio = min + rand() % ((max + 1) - min);
     return numeroAleatorio;
 }
 
